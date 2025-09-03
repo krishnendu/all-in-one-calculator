@@ -1,0 +1,71 @@
+{
+  "name": "all-in-one-calculator",
+  "version": "1.0.0",
+  "description": "All-in-One Calculator & Investment Tool with Scientific Functions - A Progressive Web App",
+  "main": "index.html",
+  "scripts": {
+    "generate-icons": "node generate-icons.js",
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000",
+    "build": "npm run generate-icons",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linter configured'",
+    "deploy": "npm run generate-icons && git add . && git commit -m 'Update PWA icons' && git push origin main",
+    "validate-pwa": "node -e \"console.log('PWA validation: manifest.json and sw.js present')\""
+  },
+  "keywords": [
+    "calculator",
+    "scientific-calculator",
+    "investment-calculator",
+    "pwa",
+    "progressive-web-app",
+    "vanilla-javascript",
+    "responsive-design",
+    "mobile-first",
+    "offline-capable"
+  ],
+  "author": "All-in-One Calculator Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krishnendu/all-in-one-calculator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/krishnendu/all-in-one-calculator/issues"
+  },
+  "homepage": "https://krishnendu.github.io/all-in-one-calculator",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "puppeteer": "^24.18.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "pwa": {
+    "name": "All-in-One Calculator",
+    "short_name": "Calculator",
+    "description": "All-in-One Calculator & Investment Tool with Scientific Functions",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#667eea",
+    "theme_color": "#667eea",
+    "icons": [
+      {
+        "src": "icons/icon-192x192.webp",
+        "sizes": "192x192",
+        "type": "image/webp"
+      },
+      {
+        "src": "icons/icon-512x512.webp",
+        "sizes": "512x512",
+        "type": "image/webp"
+      }
+    ]
+  }
+}

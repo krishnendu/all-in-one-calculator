@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One Calculator & Investment Tool</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="All-in-One Calculator with Scientific Functions and Investment Comparison Tool">
+    <meta name="keywords" content="calculator, scientific calculator, investment calculator, PWA, web app">
+    <meta name="author" content="All-in-One Calculator">
+    <meta name="theme-color" content="#667eea">
+    <meta name="msapplication-TileColor" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Calculator">
+    
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/webp" sizes="32x32" href="/icons/icon-32x32.webp">
+    <link rel="icon" type="image/webp" sizes="16x16" href="/icons/icon-16x16.webp">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.webp">
+    <link rel="mask-icon" href="/icons/icon-192x192.webp" color="#667eea">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-calculator"></i> All-in-One Calculator</h1>
+            <p>Scientific Calculator & Investment Comparison Tool</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="calculator">
+                <i class="fas fa-calculator"></i> Calculator
+            </button>
+            <button class="tab-btn" data-tab="scientific">
+                <i class="fas fa-square-root-alt"></i> Scientific
+            </button>
+            <button class="tab-btn" data-tab="investment">
+                <i class="fas fa-chart-line"></i> Investment
+            </button>
+        </nav>
+
+        <!-- Basic Calculator Tab -->
+        <div id="calculator" class="tab-content active">
+            <div class="calculator-container">
+                <div class="calculator-display">
+                    <div class="previous-operand" id="previous-operand"></div>
+                    <div class="current-operand" id="current-operand">0</div>
+                </div>
+                <div class="calculator-buttons">
+                    <button class="calc-btn operator" data-action="clear">AC</button>
+                    <button class="calc-btn operator" data-action="delete">DEL</button>
+                    <button class="calc-btn operator" data-action="percent">%</button>
+                    <button class="calc-btn operator" data-action="divide">÷</button>
+                    
+                    <button class="calc-btn number" data-number="7">7</button>
+                    <button class="calc-btn number" data-number="8">8</button>
+                    <button class="calc-btn number" data-number="9">9</button>
+                    <button class="calc-btn operator" data-action="multiply">×</button>
+                    
+                    <button class="calc-btn number" data-number="4">4</button>
+                    <button class="calc-btn number" data-number="5">5</button>
+                    <button class="calc-btn number" data-number="6">6</button>
+                    <button class="calc-btn operator" data-action="subtract">−</button>
+                    
+                    <button class="calc-btn number" data-number="1">1</button>
+                    <button class="calc-btn number" data-number="2">2</button>
+                    <button class="calc-btn number" data-number="3">3</button>
+                    <button class="calc-btn operator" data-action="add">+</button>
+                    
+                    <button class="calc-btn number" data-number="0">0</button>
+                    <button class="calc-btn number" data-number=".">.</button>
+                    <button class="calc-btn equals" data-action="equals">=</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scientific Calculator Tab -->
+        <div id="scientific" class="tab-content">
+            <div class="scientific-calculator-container">
+                <div class="calculator-display">
+                    <div class="previous-operand" id="sci-previous-operand"></div>
+                    <div class="current-operand" id="sci-current-operand">0</div>
+                </div>
+                <div class="scientific-buttons">
+                    <!-- Scientific Functions Row 1 -->
+                    <button class="calc-btn scientific" data-action="sin">sin</button>
+                    <button class="calc-btn scientific" data-action="cos">cos</button>
+                    <button class="calc-btn scientific" data-action="tan">tan</button>
+                    <button class="calc-btn scientific" data-action="log">log</button>
+                    <button class="calc-btn scientific" data-action="ln">ln</button>
+                    
+                    <!-- Scientific Functions Row 2 -->
+                    <button class="calc-btn scientific" data-action="sqrt">√</button>
+                    <button class="calc-btn scientific" data-action="power">x²</button>
+                    <button class="calc-btn scientific" data-action="cube">x³</button>
+                    <button class="calc-btn scientific" data-action="factorial">x!</button>
+                    <button class="calc-btn scientific" data-action="inverse">1/x</button>
+                    
+                    <!-- Memory Functions -->
+                    <button class="calc-btn memory" data-action="mc">MC</button>
+                    <button class="calc-btn memory" data-action="mr">MR</button>
+                    <button class="calc-btn memory" data-action="m-plus">M+</button>
+                    <button class="calc-btn memory" data-action="m-minus">M-</button>
+                    <button class="calc-btn operator" data-action="clear">AC</button>
+                    
+                    <!-- Standard Calculator Buttons -->
+                    <button class="calc-btn operator" data-action="delete">DEL</button>
+                    <button class="calc-btn operator" data-action="percent">%</button>
+                    <button class="calc-btn operator" data-action="divide">÷</button>
+                    <button class="calc-btn operator" data-action="multiply">×</button>
+                    
+                    <button class="calc-btn number" data-number="7">7</button>
+                    <button class="calc-btn number" data-number="8">8</button>
+                    <button class="calc-btn number" data-number="9">9</button>
+                    <button class="calc-btn operator" data-action="subtract">−</button>
+                    
+                    <button class="calc-btn number" data-number="4">4</button>
+                    <button class="calc-btn number" data-number="5">5</button>
+                    <button class="calc-btn number" data-number="6">6</button>
+                    <button class="calc-btn operator" data-action="add">+</button>
+                    
+                    <button class="calc-btn number" data-number="1">1</button>
+                    <button class="calc-btn number" data-number="2">2</button>
+                    <button class="calc-btn number" data-number="3">3</button>
+                    <button class="calc-btn equals" data-action="equals">=</button>
+                    
+                    <button class="calc-btn number" data-number="0">0</button>
+                    <button class="calc-btn number" data-number=".">.</button>
+                    <button class="calc-btn scientific" data-action="pi">π</button>
+                    <button class="calc-btn scientific" data-action="e">e</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Investment Calculator Tab -->
+        <div id="investment" class="tab-content">
+            <div class="investment-container">
+                <!-- Investment Options -->
+                <div class="investment-options">
+                    <h3>Investment Options</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn active" data-option="fixed-deposit">
+                            <i class="fas fa-piggy-bank"></i> Fixed Deposit
+                        </button>
+                        <button class="option-btn" data-option="recurring-deposit">
+                            <i class="fas fa-calendar-alt"></i> Recurring Deposit
+                        </button>
+                        <button class="option-btn" data-option="custom-plan">
+                            <i class="fas fa-cogs"></i> Custom Plan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interest Type Selection -->
+                <div class="interest-type-selection">
+                    <h4>Interest Type</h4>
+                    <div class="interest-buttons">
+                        <button class="interest-btn active" data-interest="compound">
+                            <i class="fas fa-chart-line"></i> Compound Interest
+                        </button>
+                        <button class="interest-btn" data-interest="simple">
+                            <i class="fas fa-chart-bar"></i> Simple Interest
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Input Form -->
+                <div class="input-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="principal">Principal Amount (₹)</label>
+                            <input type="number" id="principal" placeholder="100000" min="0" step="1000">
+                        </div>
+                        <div class="form-group">
+                            <label for="monthly-contribution">Monthly Contribution (₹)</label>
+                            <input type="number" id="monthly-contribution" placeholder="5000" min="0" step="100">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="interest-rate">Interest Rate (% p.a.)</label>
+                            <input type="number" id="interest-rate" placeholder="8.5" min="0" max="20" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="compounding-frequency">Compounding Frequency</label>
+                            <select id="compounding-frequency">
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly" selected>Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="half-yearly">Half-yearly</option>
+                                <option value="yearly">Yearly</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="investment-term">Investment Term</label>
+                            <div class="term-input">
+                                <input type="number" id="investment-term" placeholder="5" min="1" max="50" step="1">
+                                <select id="term-unit">
+                                    <option value="years" selected>Years</option>
+                                    <option value="months">Months</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button id="add-investment-btn" class="add-investment-btn">
+                                <i class="fas fa-plus"></i> Add Investment
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <button id="calculate-btn" class="calculate-btn">
+                                <i class="fas fa-calculator"></i> Calculate Returns
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <button id="clear-all-btn" class="clear-all-btn">
+                                <i class="fas fa-trash"></i> Clear All
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investment List -->
+                <div class="investment-list" id="investment-list">
+                    <h4>Added Investments</h4>
+                    <div class="investment-items" id="investment-items">
+                        <!-- Investment items will be added here dynamically -->
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section" id="results-section" style="display: none;">
+                    <h3>Investment Comparison Results</h3>
+                    
+                    <!-- Summary Cards -->
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <div class="card-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Total Investment</h4>
+                                <p id="total-investment">₹0</p>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Total Interest</h4>
+                                <p id="total-interest">₹0</p>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-icon">
+                                <i class="fas fa-piggy-bank"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Total Maturity</h4>
+                                <p id="total-maturity">₹0</p>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Best Rate</h4>
+                                <p id="best-rate">0%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="comparison-table">
+                        <h4>Detailed Comparison</h4>
+                        <div class="table-container">
+                            <table id="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Investment</th>
+                                        <th>Type</th>
+                                        <th>Principal</th>
+                                        <th>Total Contribution</th>
+                                        <th>Interest Earned</th>
+                                        <th>Maturity Value</th>
+                                        <th>Effective Rate</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="comparison-tbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Chart Container -->
+                    <div class="chart-container">
+                        <h4>Growth Visualization</h4>
+                        <canvas id="investment-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
